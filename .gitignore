@@ -1,0 +1,35 @@
+# Archivos de Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Entornos virtuales
+.env
+.venv/
+env/
+venv/
+
+# Configuración local
+*.log
+*.sqlite3
+*.db
+
+# Archivos de IDE
+.vscode/
+.idea/
+*.swp
+
+# Docker
+*.pid
+*.seed
+*.bak
+
+# Archivos de sistema
+.DS_Store
+Thumbs.db
+
+# Terraform (si lo incluyes en el mismo repo)
+*.tfstate
+*.tfstate.*
+.terraform/
