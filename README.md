@@ -1,52 +1,40 @@
-Proyecto: Mi To-Do list API online
-Un backend ligero en FastAPI desplegado en AWS EKS, empaquetado en Docker, y monitoreado con CloudWatch.
-Facilita la organización personal o de equipo al centralizar tareas en un servicio accesible vía API.
+﻿# Todo API
 
-Flujo rápido de pruebas
-Validar aplicación local (FastAPI)
+Una aplicación básica de FastAPI para gestionar tareas (To-Do), desplegable en AWS EKS.
 
+## Instalación local
+
+git clone https://github.com/Insanejokajams/todo-api.git
+cd todo-api/app
+pip install -r requirements.txt
 uvicorn app.main:app --reload
-Acceder a: http://127.0.0.1:8000/docs
 
-Docker local
+La aplicación estará disponible en http://127.0.0.1:8000.
 
-docker build -t todo-api .
-docker run -p 8000:80 todo-api
-Acceder a: http://127.0.0.1:8000/docs
+## Endpoints
 
-Imagen publicada: insanejokajams/todo-api
+- GET /tasks → Lista todas las tareas
+- POST /tasks → Crea una nueva tarea
+- GET /tasks/{id} → Obtiene una tarea por ID
+- DELETE /tasks/{id} → Elimina una tarea
 
-docker pull insanejokajams/todo-api:latest
-docker run -p 8000:80 insanejokajams/todo-api:latest
+Ejemplo de creación de tarea:
 
+Invoke-RestMethod -Uri "http://127.0.0.1:8000/tasks" -Method Post -ContentType "application/json" -Body '{"title":"Comprar Pan Dulce","completed":false}'
 
-Infraestructura AWS (Terraform)
+## Despliegue en EKS
 
-terraform init
-terraform apply
-aws eks update-kubeconfig --region us-east-1 --name todo-api-cluster
-Despliegue en Kubernetes
+1. Construir y subir la imagen a Docker Hub:
+   docker build -t insanejokajams/todo-api:latest .
+   docker push insanejokajams/todo-api:latest
 
-kubectl apply -f deployment.yaml
-kubectl apply -f service.yaml
-kubectl get svc todo-api-service
+2. Aplicar el manifiesto de Kubernetes:
+   kubectl apply -f infra/deployment.yaml
+   kubectl rollout status deployment/todo-api-deployment
 
-Acceder a:
-http://<LB-DNS>.us-east-1.elb.amazonaws.com/docs
-Pruebas rápidas con PowerShell (Invoke-RestMethod)
+3. Probar el LoadBalancer:
+   Invoke-RestMethod -Uri "http://<LoadBalancer>/tasks" -Method Get
 
-Crear tarea:
-Invoke-RestMethod -Uri "http://<LB-DNS>/tasks" -Method Post -ContentType "application/json" -Body '{"title":"Primera tarea","completed":false}'
+## Licencia
 
-Listar tareas:
-Invoke-RestMethod -Uri "http://<LB-DNS>/tasks" -Method Get
-
-Obtener tarea:
-Invoke-RestMethod -Uri "http://<LB-DNS>/tasks/(numero de task)" -Method Get
-
-Eliminar tarea:
-Invoke-RestMethod -Uri "http://<LB-DNS>/tasks/(numero de task)" -Method Delete
-
-Referencias
-/app → desarrollo y empaquetado en Docker.
-/infra → despliegue con Terraform y EKS, observabilidad en cloudwatch
+Este proyecto es de uso educativo.
