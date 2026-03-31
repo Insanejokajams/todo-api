@@ -29,7 +29,11 @@ venv/
 .DS_Store
 Thumbs.db
 
-# Terraform (si lo incluyes en el mismo repo)
+# Terraform
+.terraform/
 *.tfstate
 *.tfstate.*
-.terraform/
+crash.log
+override.tf
+override.tf.json
+terraform.tfvars
