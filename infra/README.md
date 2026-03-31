@@ -1,4 +1,3 @@
-Set-Content -Path README.md -Value @'
 # Infraestructura Todo API
 
 ## 1. Configuración de acceso a AWS
@@ -56,4 +55,3 @@ Invoke-RestMethod -Uri "http://<LB-DNS>/tasks/(id)" -Method Delete
 ## 5. Observabilidad
 Logs y métricas disponibles en CloudWatch Container Insights:
 Ruta: /aws/eks/todo-api-cluster/cluster
-'@
