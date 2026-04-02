@@ -16,7 +16,7 @@ Swagger UI (/docs) y OpenAPI (/openapi.json) disponibles para probar los endpoin
 ## Empaquetado en Docker
 
 ### Construcción de la imagen
-docker build -t todo-api .
+docker build -t todo-api . <br>
 docker run -p 8000:80 todo-api
 
 La aplicación corrió en http://127.0.0.1:8000/docs dentro del contenedor.
@@ -29,12 +29,11 @@ Se verificó que los endpoints funcionaran correctamente.
 
 La imagen se subió al repositorio público: insanejokajams/todo-api
 
-Bash
-docker build -t insanejokajams/todo-api:latest .
-docker push insanejokajams/todo-api:latest
-Prueba desde Docker Hub
-docker pull insanejokajams/todo-api:latest
-docker run -p 8000:80 insanejokajams/todo-api:latest
+docker build -t insanejokajams/todo-api:latest . <br>
+docker push insanejokajams/todo-api:latest <br>
+Prueba desde Docker Hub <br>
+docker pull insanejokajams/todo-api:latest <br>
+docker run -p 8000:80 insanejokajams/todo-api:latest <br>
 
 Confirmación: Swagger UI y endpoints accesibles en http://127.0.0.1:8000/docs.
 
