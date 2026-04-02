@@ -34,6 +34,17 @@ Invoke-RestMethod -Uri "http://127.0.0.1:8000/tasks" -Method Post -ContentType "
 3. Probar el LoadBalancer:
    Invoke-RestMethod -Uri "http://<LoadBalancer>/tasks" -Method Get <br>
 
+## Costos Estimados
+
+| Configuración                  | Control Plane | Compute (EC2 Spot) | EBS (20 GB/nodo) | CloudWatch | Total mensual aprox. |
+|--------------------------------|---------------|--------------------|------------------|------------|----------------------|
+| **Small (t3.micro, 2 nodos, 24/7)** | $73           | $7–$9              | $4               | $10–$20    | **$94–$106**         |
+| **Small (t3.micro, 2 nodos, apagando fuera de horario laboral)** | $73           | $2–$3              | $4               | $10–$20    | **$89–$100**         |
+| **Medium (t3.medium, 2 nodos, 24/7)** | $73           | $20–$30            | $4               | $10–$20    | **$107–$127**        |
+| **Medium (t3.medium, 2 nodos, apagando fuera de horario laboral)** | $73           | $6–$9              | $4               | $10–$20    | **$93–$106**         |
+
+---
+
 ## Licencia
 
 Este proyecto es de uso educativo.
