@@ -4,10 +4,10 @@ Una aplicación básica de FastAPI para gestionar tareas (To-Do), desplegable en
 
 ## Instalación local
 
-git clone https://github.com/Insanejokajams/todo-api.git
-cd todo-api/app
-pip install -r requirements.txt
-uvicorn app.main:app --reload
+git clone https://github.com/Insanejokajams/todo-api.git <br>
+cd todo-api/app <br>
+pip install -r requirements.txt <br>
+uvicorn app.main:app --reload <br>
 
 La aplicación estará disponible en http://127.0.0.1:8000.
 
