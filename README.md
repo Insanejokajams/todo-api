@@ -5,7 +5,6 @@ Una aplicación básica de FastAPI para gestionar tareas (To-Do), desplegable en
 ## Instalación local
 
 git clone https://github.com/Insanejokajams/todo-api.git <br>
-cd todo-api/app <br>
 pip install -r requirements.txt <br>
 uvicorn app.main:app --reload <br>
 
@@ -24,16 +23,16 @@ Invoke-RestMethod -Uri "http://127.0.0.1:8000/tasks" -Method Post -ContentType "
 
 ## Despliegue en EKS
 
-1. Construir y subir la imagen a Docker Hub:
-   docker build -t insanejokajams/todo-api:latest .
-   docker push insanejokajams/todo-api:latest
+1. Construir y subir la imagen a Docker Hub: <br>
+   docker build -t insanejokajams/todo-api:latest . <br>
+   docker push insanejokajams/todo-api:latest <br>
 
-2. Aplicar el manifiesto de Kubernetes:
-   kubectl apply -f infra/deployment.yaml
-   kubectl rollout status deployment/todo-api-deployment
+2. Aplicar el manifiesto de Kubernetes: <br>
+   kubectl apply -f infra/deployment.yaml <br>
+   kubectl rollout status deployment/todo-api-deployment <br>
 
 3. Probar el LoadBalancer:
-   Invoke-RestMethod -Uri "http://<LoadBalancer>/tasks" -Method Get
+   Invoke-RestMethod -Uri "http://<LoadBalancer>/tasks" -Method Get <br>
 
 ## Licencia
 
