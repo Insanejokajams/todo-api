@@ -70,9 +70,10 @@ resource "aws_eks_addon" "cloudwatch" {
 }
 
 # S3 bucket opcional
-resource "aws_s3_bucket" "logs" {
-  bucket = "todo-api-logs-us-east-1"
-}
+#resource "aws_s3_bucket" "logs" {
+#  bucket = "todo-api-logs-us-east-1"
+#}
+
 #attachar access policy
 resource "null_resource" "associate_access_policy" {
   depends_on = [module.eks]
